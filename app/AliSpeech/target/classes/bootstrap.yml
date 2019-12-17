@@ -1,0 +1,14 @@
+###需拷贝到每一个模块下
+
+spring:
+  # 应用名
+  application:
+    name: AliSpeech
+  # 当前读取配置文件的类型
+  profiles:
+    active: dev
+  #配置中心
+  cloud:
+    config:
+      uri: http://192.168.8.15:8000
+      name: AliSpeech,ConfigCenter

@@ -1,0 +1,85 @@
+#默认端口号
+server:
+  port: 6092
+
+#注册中心
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${ApplicationCenter.url}
+  instance:
+    lease-renewal-interval-in-seconds: 30 # 续约更新时间间隔
+    lease-expiration-duration-in-seconds: 90 # 续约到期时间
+
+#允许消息总线
+spring:
+  cloud:
+    stream:
+      bindings:
+        UserCenterInputStream:
+          group: "aliSpeech"
+        UserCenterOuputStream:
+          group: "aliSpeech"
+          destination: "UserCenterInputStream"
+      #kafka
+      kafka:
+        binder:
+          brokers: ${Kafka.brokers}
+    bus:
+      enabled: true
+  #配置zipkin链路追踪客户端
+  zipkin:
+    base-url: ${Zipkin.baseUrl}
+    enabled: true
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: ${Zipkin.sampler.probability}
+
+
+
+#权限配置
+usersecurity:
+  #不使用角色前缀
+  rolePrefixName: ""
+  needSecurityMethodUrl: "/**/*"
+  excludeSecurityMethodUrl: "/resources/**,/error"
+
+
+
+
+#允许端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+
+
+
+
+#使用断路器
+feign:
+  hystrix:
+    enabled: true
+
+
+#调试或者输出日志
+logging:
+  file: logs/${project.artifactId}.log
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet: INFO
+        cloud:
+          sleuth: INFO
+
+
+debug: true
+trace: true

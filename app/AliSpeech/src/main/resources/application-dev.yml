@@ -1,0 +1,24 @@
+eureka:
+  instance:
+    prefer-ip-address: true #注册使用ip
+    instance-id: 192.168.2.107:${server.port} #实例id
+    ip-address: 192.168.2.107 #可访问的ip地址
+
+spring:
+  data:
+    mongodb:
+      database: speech
+      host: 192.168.2.107:27017
+      username: admin
+      password: admin
+
+ali-props:
+  app-key: "hpybVWeUfl3RAvyD"
+  access-key-id: "LTAIapaQzjAYJrqK"
+  access-key-secret: "5rdvfSeq90wDvpJpjxorj3PTcprtiH"
+
+baidu-props:
+  app-id: "15788882"
+  api-key: "cVhqmuLDu1VNOeCloNpDWA3L"
+  secret-key: "2ylEqFgHhAS96hbRp8Lz0LUkZEdYmqj0"
+
