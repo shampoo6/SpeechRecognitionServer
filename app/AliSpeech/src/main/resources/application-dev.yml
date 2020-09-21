@@ -13,12 +13,12 @@ spring:
       password: admin
 
 ali-props:
-  app-key: "hpybVWeUfl3RAvyD"
-  access-key-id: "LTAIapaQzjAYJrqK"
-  access-key-secret: "5rdvfSeq90wDvpJpjxorj3PTcprtiH"
+  app-key: "自己的appkey"
+  access-key-id: "自己的keyId"
+  access-key-secret: "自己的密钥"
 
 baidu-props:
-  app-id: "15788882"
-  api-key: "cVhqmuLDu1VNOeCloNpDWA3L"
-  secret-key: "2ylEqFgHhAS96hbRp8Lz0LUkZEdYmqj0"
+  app-id: "自己的appid"
+  api-key: "自己的apikey"
+  secret-key: "自己的密钥"
 
